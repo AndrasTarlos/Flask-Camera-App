@@ -1,6 +1,5 @@
 import base64
 import re
-import os
 
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
@@ -51,4 +50,4 @@ def send_face_coordinates(coordinates):
 
 
 if __name__ == "__main__":
-    socketio.run(app, debug=False, host="0.0.0.0", port=os.environ.get("PORT", 8080))
+    socketio.run(app, debug=False, host="0.0.0.0")
