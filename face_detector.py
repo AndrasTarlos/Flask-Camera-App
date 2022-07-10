@@ -47,6 +47,8 @@ import cv2
 
 
 def create_coordinates(byte_data):
+    print("Hi")
+    '''
     pil_img = Image.open(io.BytesIO(byte_data)).convert("RGB")
     ocv_image = numpy.array(pil_img)
     ocv_image = ocv_image[:, :, ::-1].copy()
@@ -54,6 +56,7 @@ def create_coordinates(byte_data):
     grayscaled_img = cv2.cvtColor(ocv_image, cv2.COLOR_BGR2GRAY)
     face_coordinates = trained_face_data.detectMultiScale(grayscaled_img)
     return face_coordinates
+    '''
 
 
 def show(img):
