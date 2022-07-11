@@ -61,4 +61,5 @@ def send_face_coordinates(coordinates):
 
 
 if __name__ == "__main__":
-    socketio.run(app, port=int(os.environ.get("PORT", 3000)), host='0.0.0.0', debug=True)
+    app.run(port=int(os.environ.get("PORT", 8080)), host='0.0.0.0', debug=True)
+    #socketio.run(app, port=int(os.environ.get("PORT", 3000)), host='0.0.0.0', debug=True)
