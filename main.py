@@ -1,4 +1,5 @@
 import base64
+import os
 import re
 import cv2
 import numpy
@@ -60,4 +61,4 @@ def send_face_coordinates(coordinates):
 
 
 if __name__ == "__main__":
-    socketio.run(app, debug=False, host="0.0.0.0", PORT=3000)
+    socketio.run(app, port=int(os.environ.get("PORT", 8080)), host='0.0.0.0', debug=True)
