@@ -38,7 +38,7 @@ def get_face_coordinates(base64_data):
     image_data = re.sub('^data:image/.+;base64,', '', base64_data)
     byte_data = base64.urlsafe_b64decode(image_data)
 
-    print("Hi")
+    print("Hi Moustafa")
     '''
     pil_img = Image.open(io.BytesIO(byte_data)).convert("RGB")
     ocv_image = numpy.array(pil_img)
