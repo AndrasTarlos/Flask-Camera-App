@@ -1,9 +1,11 @@
 import base64
 import re
+import cv2
+import numpy
+from PIL import Image
 
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
-from face_detector import *
 
 app = Flask(__name__)
 app.config['MASTER_KEY'] = 'admin'
@@ -35,8 +37,16 @@ def connect():
 def get_face_coordinates(base64_data):
     image_data = re.sub('^data:image/.+;base64,', '', base64_data)
     byte_data = base64.urlsafe_b64decode(image_data)
-    face_coordinates = create_coordinates(byte_data)
-    send_face_coordinates(face_coordinates)
+
+    print("Hi")
+    '''
+    pil_img = Image.open(io.BytesIO(byte_data)).convert("RGB")
+    ocv_image = numpy.array(pil_img)
+    ocv_image = ocv_image[:, :, ::-1].copy()
+    trained_face_data = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+    grayscaled_img = cv2.cvtColor(ocv_image, cv2.COLOR_BGR2GRAY)
+    face_coordinates = trained_face_data.detectMultiScale(grayscaled_img)
+    '''
 
 
 @socketio.on('message')
