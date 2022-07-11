@@ -1,7 +1,7 @@
 import base64
 import os
 import re
-import cv2
+#import cv2
 import numpy
 from PIL import Image
 
